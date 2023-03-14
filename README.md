@@ -7,4 +7,12 @@ to be running, as it looks in the session backup.
 
 At the moment, it works for Firefox only.
 
-To install, run `pip install git+https://github.com/bensteinberg/lot.git`.
+Installation
+------------
+
+Run `pip install git+https://github.com/bensteinberg/lot.git`.
+
+Usage
+-----
+
+Run `lot`.
