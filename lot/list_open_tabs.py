@@ -1,3 +1,4 @@
+import platform
 import json
 import lz4.block
 from pathlib import Path
@@ -8,12 +9,25 @@ to be running, as it looks in the session backup. It looks in all of your
 profiles.
 """
 
+
 def cli():
     # the recovery file is in the Firefox profile, the location of which can
-    # vary with OS and installation method
+    # vary with OS and installation method; these lists may not be complete;
+    # no idea if this will work in Windows
+    locations = {
+        'Linux': ['.mozilla/firefox/', 'snap/firefox/common/.mozilla/firefox'],
+        'Darwin': ['Library/Application Support/Firefox/Profiles'],
+        'Windows': ['\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles']
+    }
+
     # look at all profiles
-    # if this rglob took too long, we could guess at the profile location
-    recoveries = list(Path.home().rglob('sessionstore-backups/recovery.js*'))
+    recoveries = [
+        recovery for sublist in [
+            (Path.home() / folder).rglob(
+                'sessionstore-backups/recovery.js*'
+            ) for folder in locations[platform.system()]
+        ] for recovery in sublist
+    ]
 
     # method from https://unix.stackexchange.com/a/389360
     # and suffix nuance from https://unix.stackexchange.com/a/385026
