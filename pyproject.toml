@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "lot"
-version = "0.1.0"
+version = "0.1.1"
 description = "List open Firefox tabs"
 authors = ["Ben Steinberg <bsteinberg@law.harvard.edu>"]
 readme = "README.md"
