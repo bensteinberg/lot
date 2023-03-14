@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "lot"
+version = "0.1.0"
+description = "List open Firefox tabs"
+authors = ["Ben Steinberg <bsteinberg@law.harvard.edu>"]
+readme = "README.md"
+license = "GPL-3.0-or-later"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+lz4 = "^4.3.2"
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^6.0.0"
+
+[tool.poetry.scripts]
+lot = 'lot.list_open_tabs:cli'
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
