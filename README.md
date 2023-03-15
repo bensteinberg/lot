@@ -10,7 +10,7 @@ At the moment, it works for Firefox only.
 Installation
 ------------
 
-Run `pip install git+https://github.com/bensteinberg/lot.git`.
+Run `pipx install git+https://github.com/bensteinberg/lot.git`.
 
 Usage
 -----
