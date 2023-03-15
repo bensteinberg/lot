@@ -43,6 +43,4 @@ def cli():
 
             for window in data["windows"]:
                 for tab in window["tabs"]:
-                    i = int(tab["index"]) - 1
-                    url = tab["entries"][i]["url"]
-                    print(url)
+                    print(tab["entries"][int(tab["index"]) - 1]["url"])
