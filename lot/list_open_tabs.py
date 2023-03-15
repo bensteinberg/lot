@@ -32,15 +32,15 @@ def cli():
     # method from https://unix.stackexchange.com/a/389360
     # and suffix nuance from https://unix.stackexchange.com/a/385026
     for recovery in recoveries:
-        with open(recovery, "rb") as f:
+        with open(recovery, 'rb') as f:
             if recovery.suffix == '.jsonlz4':
                 _ = f.read(8)  # magic
                 data = json.loads(
-                    lz4.block.decompress(f.read()).decode("utf-8")
+                    lz4.block.decompress(f.read()).decode('utf-8')
                 )
             else:
                 data = json.load(f)
 
-            for window in data["windows"]:
-                for tab in window["tabs"]:
-                    print(tab["entries"][int(tab["index"]) - 1]["url"])
+            for window in data['windows']:
+                for tab in window['tabs']:
+                    print(tab['entries'][int(tab['index']) - 1]['url'])
